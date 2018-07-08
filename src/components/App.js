@@ -7,8 +7,7 @@ class App extends Component {
   componentDidMount() {
     const {dispatch} = this.props
 
-      //Add thunk middleware
-    //dispatch(handleInitialData())
+    dispatch(handleInitialData())
   }
 
   render() {

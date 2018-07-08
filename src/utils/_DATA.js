@@ -12,9 +12,9 @@ let users = {
     polls: ['8xf0y6ziyjabvozdd253nd', 'am8ehyc8byjqgar0jgpub9']
   },
   tylermcginnis: {
-    id: 'mfournier',
-    name: 'Marc Fournier',
-    avatarURL: 'https://avatars0.githubusercontent.com/u/19799962?s=460&v=4',
+    id: 'tylermcginnis',
+    name: 'Tyler McGinnis',
+    avatarURL: 'https://tylermcginnis.com/would-you-rather/tyler.jpg',
     answers: {
       "vthrdm985a262al8qx3do": 'a',
       "xj352vofupe1dqz9emx13r": 'a',

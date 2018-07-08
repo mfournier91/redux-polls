@@ -3,7 +3,7 @@ import {receivePolls} from "./polls";
 import {receiveUsers} from './users'
 import {setAuthedUser} from "./authedUser";
 
-const AUTHED_ID = 'mfournier'
+const AUTHED_ID = 'dan_abramov'
 
 
 export function handleInitialData () {
