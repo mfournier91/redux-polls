@@ -3,11 +3,46 @@ import { connect } from 'react-redux'
 
 
 class Dashboard extends Component {
+    state = {
+        showAnswered: false
+    }
+
+    showUnanswered = () => {
+        this.setState(() => ({
+            showAnswered: false
+        }))
+    }
+
+    showAnswered = () => {
+        this.setState(() => ({
+            showAnswered: true
+        }))
+    }
+
     render() {
-        console.log("lkjsdlfjk",this.props)
+        const {showAnswered} = this.state
+        const {answered, unanswered} = this.props
+        const list = showAnswered === true
+                ? answered
+                : unanswered
+
         return (
             <div>
-                Dashboard
+                <div className="dashboard-toggle">
+                    <button
+                    style={{textDecoration: showAnswered === false ? 'underline' : 'none'}}
+                    onClick={this.showUnanswered}
+                    >Unanswered</button>
+                    <span> | </span>
+                    <button
+                        style={{textDecoration: showAnswered === true ? 'underline' : 'none'}}
+                        onClick={this.showAnswered}
+                    >Answered</button>
+
+                </div>
+                <ul className="dashboard-list">
+                    {list.map((poll) => (<li key={poll.id}>{poll.question}</li>))}
+                </ul>
             </div>
         )
     }
