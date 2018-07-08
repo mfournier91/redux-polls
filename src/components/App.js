@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import {handleInitialData} from "../actions/shared";
 import users from "../reducers/users";
+import Dashboard from './Dashboard'
 
 class App extends Component {
   componentDidMount() {
@@ -13,13 +14,19 @@ class App extends Component {
   render() {
     return (
       <div>
-        Starter Code.
+          {this.props.loading === true
+              ? null
+          : <Dashboard/>
+          }
       </div>
     )
   }
 }
 
-export default connect((state)=> ({
-    users: state.users,
-    authedUser: state.authedUser
-}))(App)
+function mapStateToProps({ authedUser }) {
+    return {
+        loading: authedUser === null
+    }
+}
+
+export default connect(mapStateToProps)(App)
