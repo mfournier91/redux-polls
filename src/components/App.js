@@ -1,6 +1,16 @@
 import React, { Component } from 'react'
+import {connect} from 'react-redux'
+import {handleInitialData} from "../actions/shared";
+import users from "../reducers/users";
 
 class App extends Component {
+  componentDidMount() {
+    const {dispatch} = this.props
+
+      //Add thunk middleware
+    //dispatch(handleInitialData())
+  }
+
   render() {
     return (
       <div>
@@ -10,4 +20,7 @@ class App extends Component {
   }
 }
 
-export default App
+export default connect((state)=> ({
+    users: state.users,
+    authedUser: state.authedUser
+}))(App)
