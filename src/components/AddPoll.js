@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import {handleAddPoll} from "../actions/polls";
+import {connect} from 'react-redux'
 
 class AddPoll extends Component {
     state = {
@@ -19,7 +21,8 @@ class AddPoll extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log(this.state)
+        let poll = {...this.state}
+        this.props.dispatch(handleAddPoll(poll))
     }
 
     isDisabled = () => {
@@ -55,4 +58,7 @@ class AddPoll extends Component {
 
 }
 
-export default AddPoll
+
+
+
+export default connect()(AddPoll)
